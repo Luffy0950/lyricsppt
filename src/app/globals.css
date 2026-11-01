@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #15122a;
+  color: #f1ece2;
+}
+
+body {
+  font-family: Figtree, ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* house lights dimmed: a faint warm spill from the top of the page */
+.stage-bg {
+  background:
+    radial-gradient(1200px 500px at 70% -10%, rgba(244, 185, 66, 0.07), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(154, 147, 196, 0.08), transparent 60%),
+    #15122a;
+}
+
+:focus-visible {
+  outline: 2px solid #f4b942;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-spot text-stage hover:bg-[#ffcb5c];
+  }
+  .btn-ghost {
+    @apply btn border border-rail bg-transparent text-house hover:border-haze/60 hover:bg-white/5;
+  }
+  .btn-quiet {
+    @apply btn px-2.5 py-1.5 text-house/80 hover:bg-white/5 hover:text-house;
+  }
+  .btn-danger {
+    @apply btn border border-cue/40 text-cue hover:bg-cue/10;
+  }
+  .field {
+    @apply w-full rounded-lg border border-rail bg-stage/70 px-3 py-2 text-sm text-house placeholder:text-haze/60 focus:border-spot/70 focus:outline-none;
+  }
+  .label {
+    @apply mb-1.5 block text-[13px] font-medium text-haze;
+  }
+  .panel {
+    @apply rounded-2xl border border-rail/80 bg-riser/70;
+  }
+  .seg {
+    @apply inline-flex rounded-lg border border-rail bg-stage/60 p-0.5;
+  }
+  .seg > button {
+    @apply rounded-md px-3 py-1.5 text-sm text-house/70 transition-colors hover:text-house;
+  }
+  .seg > button[aria-pressed="true"] {
+    @apply bg-rail text-house shadow-[inset_0_-2px_0_#F4B942];
+  }
+}
+
+.slide-frame {
+  container-type: size;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* the projection hero: lines crossfade like cues on a lyric operator's desk */
+.cue-in {
+  animation: cueIn 1.1s ease both;
+}
+@keyframes cueIn {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+input[type="range"] {
+  accent-color: #f4b942;
+}
+input[type="checkbox"] {
+  accent-color: #f4b942;
+}

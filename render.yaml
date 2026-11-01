@@ -1,0 +1,25 @@
+# Render blueprint: free Docker web service. Secrets are entered in the Render dashboard.
+services:
+  - type: web
+    name: lyrics2ppt
+    runtime: docker
+    plan: free
+    envVars:
+      - key: DB_DRIVER
+        value: mysql
+      - key: DB_SSL
+        value: "true"
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_NAME
+        value: lyrics2ppt
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: APP_PASSWORD
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false

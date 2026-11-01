@@ -1,0 +1,46 @@
+{
+  "name": "lyrics2ppt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Lyrics-to-PowerPoint Generator",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "smoke": "tsx scripts/smoke.ts samples/sample-lyrics.txt"
+  },
+  "dependencies": {
+    "jpeg-js": "^0.4.4",
+    "jszip": "^3.10.2",
+    "lucide-react": "^0.460.0",
+    "mammoth": "^1.8.0",
+    "mysql2": "^3.24.6",
+    "nanoid": "^5.0.9",
+    "next": "^15.5.28",
+    "pdf-parse": "^1.1.1",
+    "pptxgenjs": "^3.12.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/pdf-parse": "^1.1.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.15",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "overrides": {
+    "image-size": "^2.0.4",
+    "postcss": "$postcss"
+  }
+}
